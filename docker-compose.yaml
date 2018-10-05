@@ -1,0 +1,26 @@
+version: '2'
+services:
+    drupal-web:
+        build:
+            context: ./host
+            dockerfile: Dockerfile
+        depends_on:
+            - mysql
+        ports:
+            - "8090:80"
+        volumes:
+            - ./drupal:/home/site/wwwroot
+
+    mysql:
+        image: mysql:8
+        container_name: drupal-mysql
+        volumes:
+            - ./data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: "Reallytrong_3"
+            MYSQL_USER: "tester"
+            MYSQL_PASSWORD: "Reallytrong_3"
+            MYSQL_DATABASE: "drupaltest"
+
+
+    
