@@ -1,0 +1,15 @@
+version: '2'
+services:
+    drupal-web:
+        container_name: drupal-composer
+        build:
+            context: ./composer
+            dockerfile: Dockerfile
+        command: install
+        volumes:
+            - ./drupal:/app
+
+   
+
+
+    
